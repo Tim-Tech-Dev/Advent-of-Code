@@ -7,8 +7,7 @@ const TSCONFIG = `{
     "extends": "../tsconfig.json"
 }
 `;
-const INDEXTS = `
-// day§day§: 
+const INDEXTS = `// day§day§: 
 
 export function main() {
     return undefined;
@@ -23,7 +22,7 @@ import { main } from "./index";
 describe("day§day§", () => {
     it("should return ???", () => {
         const result = main();
-        expect(result).to.equal("Missing!");
+        expect(result).to.equal(undefined);
     });
 });
 `;

@@ -5,6 +5,6 @@ import { main } from "./index";
 describe("day17", () => {
     it("should return ???", () => {
         const result = main();
-        expect(result).to.equal("Missing!");
+        expect(result).to.equal(undefined);
     });
 });
