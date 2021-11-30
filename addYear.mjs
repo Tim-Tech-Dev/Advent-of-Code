@@ -1,6 +1,7 @@
 // @ts-check
 import fs from "fs";
 import path from "path";
+import process from "process";
 
 const TSCONFIG = `{
     "extends": "../tsconfig.json"
