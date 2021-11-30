@@ -1,0 +1,41 @@
+{
+    "private": true,
+    "name": "advent-of-code",
+    "version": "2021",
+    "description": "My Advent of Code solutions",
+    "scripts": {
+        "addYear": "node addYear.mjs",
+        "postaddYear": "npm run format",
+        "build:2021": "tsc -b 2021/",
+        "pretest:2021": "npm run build:2021",
+        "test:2021": "mocha 2021/**/index.test.js",
+        "format": "prettier --write --ignore-path '**/*.d.ts' .",
+        "lint": "eslint --ext ts --ignore-pattern '**/*.d.ts' ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Tim-Tech-Dev/Advent-of-Code.git"
+    },
+    "keywords": [
+        "Advent of Code"
+    ],
+    "author": "Tim-Tech-Dev",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Tim-Tech-Dev/Advent-of-Code/issues"
+    },
+    "homepage": "https://github.com/Tim-Tech-Dev/Advent-of-Code#readme",
+    "devDependencies": {
+        "@types/chai": "^4.2.22",
+        "@types/mocha": "^9.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.5.0",
+        "@typescript-eslint/parser": "^5.5.0",
+        "chai": "^4.3.4",
+        "eslint": "^8.3.0",
+        "mocha": "^9.1.3",
+        "prettier": "^2.5.0"
+    },
+    "dependencies": {
+        "typescript": "^4.5.2"
+    }
+}
