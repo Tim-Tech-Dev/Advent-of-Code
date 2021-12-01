@@ -1,26 +1,32 @@
 // day01:
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync } from "fs";
 import { resolve } from "path";
 
 const inputPath = resolve(__dirname, "./input.txt");
-const outputPath = resolve(__dirname, "./output.txt");
 
-const input = readFileSync(inputPath, "utf8");
+export function main() {
+    const input = readFileSync(inputPath, "utf8")
+        .split("\n")
+        .map((v) => parseInt(v, 10));
+    console.log(
+        `day01: There are ${stage0(input)} measurements and ${stage1(
+            input,
+        )} sums which are larger than the previous.`,
+    );
+}
+export function stage0(arg: number[]) {
+    return arg.filter((v, i) => {
+        const prev = arg[i - 1];
+        return prev ? prev < v : false;
+    }).length;
+}
 
-writeFileSync(outputPath, JSON.stringify(main(input)), "utf8");
-
-export function main(input: string) {
-    const nums = input.split("\n").map((i) => parseInt(i, 10));
-    const res1 = nums.filter((v, i, arr) => (arr[i - 1] ?? 999999999) < v);
-
-    const res2 = nums
-        .map(
-            (v, i, arr) =>
-                (arr[i - 1] ?? -999999999) + v + (arr[i + 1] ?? -999999999),
-        )
-        .map((v) => (isNaN(v) ? 0 : v === Math.abs(v) ? v : 0))
-        .splice(1)
-        .filter((v, i, arr) => (arr[i - 1] ?? 999999999) < v);
-
-    return [res1.length, res2.length];
+export function stage1(arg: number[]) {
+    return stage0(
+        arg.map((v, i) => {
+            const prev = arg[i - 1];
+            const next = arg[i + 1];
+            return prev ? (next ? prev + v + next : 0) : 0;
+        }),
+    );
 }

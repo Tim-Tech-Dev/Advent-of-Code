@@ -4,11 +4,13 @@
     "version": "2021",
     "description": "My Advent of Code solutions",
     "scripts": {
-        "addYear": "node addYear.mjs",
-        "postaddYear": "npm run format",
+        "addYear": "node addYear.js",
+        "apostaddYear": "npm run format",
         "build:2021": "tsc -b 2021/",
         "pretest:2021": "npm run build:2021",
         "test:2021": "mocha 2021/**/index.test.js",
+        "prerun:2021": "npm run build:2021",
+        "run:2021": "node  2021/run.js",
         "format": "prettier --write --ignore-path '**/*.d.ts' .",
         "lint": "eslint --ext ts --ignore-pattern '**/*.d.ts' ."
     },
