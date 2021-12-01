@@ -4,8 +4,9 @@
     "version": "2021",
     "description": "My Advent of Code solutions",
     "scripts": {
+        "preaddYear": "tsc addYear.ts",
         "addYear": "node addYear.js",
-        "apostaddYear": "npm run format",
+        "postaddYear": "npm run format",
         "build:2021": "tsc -b 2021/",
         "pretest:2021": "npm run build:2021",
         "test:2021": "mocha 2021/**/index.test.js",
