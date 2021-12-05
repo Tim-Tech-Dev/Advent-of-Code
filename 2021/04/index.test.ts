@@ -23,12 +23,12 @@ describe("day04", () => {
 18  8 23 26 20
 22 11 13  6  5
  2  0 12  3  7`);
-    it("Bingo! Our final score should be 4512", () => {
+    it("stage 0: Bingo! Our final score should be 4512", () => {
         const res = stage0(input.nums, input.boards);
         expect(res).to.equal(4512);
     });
 
-    it("If the squid must win, we should get a score of 1924", () => {
+    it("stage 1: If the squid must win, we should get a score of 1924", () => {
         const res = stage1(input.nums, input.boards);
         expect(res).to.equal(1924);
     });

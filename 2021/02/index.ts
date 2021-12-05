@@ -7,9 +7,9 @@ const inputPath = resolve(__dirname, "./input.txt");
 export function main() {
     const input = readFileSync(inputPath, "utf8").split("\n");
     console.log(
-        `day02: The multiple of the final horizontal position by the final depth is ${stage0(
+        `The multiple of the final horizontal position by the final depth is '${stage0(
             input,
-        )}m and ${stage1(input)}m if the submarine uses aim.`,
+        )}' and '${stage1(input)}' if the submarine uses aim.`,
     );
 }
 export function stage0(arg: string[]) {

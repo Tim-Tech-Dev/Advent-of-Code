@@ -9,9 +9,9 @@ export function main() {
         .split("\n")
         .map((v) => parseInt(v, 10));
     console.log(
-        `day01: There are ${stage0(input)} measurements and ${stage1(
+        `There are '${stage0(input)}' measurements and '${stage1(
             input,
-        )} sums which are larger than the previous.`,
+        )}' sums which are larger than the previous.`,
     );
 }
 export function stage0(arg: number[]) {

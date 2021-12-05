@@ -9,7 +9,7 @@ export function main() {
     console.log(
         `There are '${stage0(
             input,
-        )}' points at witch at least two lines overlap and '${stage1(
+        )}' points at witch at least two lines os hydrothermal vents overlap and '${stage1(
             input,
         )}' with diagonals.`,
     );

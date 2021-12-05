@@ -13,15 +13,13 @@ describe("day05", () => {
 3,4 -> 1,4
 0,0 -> 8,8
 5,5 -> 8,2`);
-    it("Not defiend yet", () => {
+    it("stage0: There should be 5 overlapping hydrothermal vents", () => {
         const res = stage0(input);
         expect(res).to.equal(5);
     });
 
-    it("Not defiend yet", () => {
+    it("stage0: There should be 12 overlapping hydrothermal vents because of diagonals", () => {
         const res = stage1(input);
         expect(res).to.equal(12);
     });
 });
-
-

@@ -17,13 +17,12 @@ describe("day03", () => {
         "00010",
         "01010",
     ].map((v) => v.split(""));
-    console.log(input);
-    it("Not defiend yet", () => {
+    it("stage 0: The subs power consumption should be 198", () => {
         const res = stage0(input);
         expect(res).to.equal(198);
     });
 
-    it("Not defiend yet", () => {
+    it("stage 1: The life support rating of our sub should be 230", () => {
         const res = stage1(input);
         expect(res).to.equal(230);
     });

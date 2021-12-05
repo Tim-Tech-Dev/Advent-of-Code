@@ -9,9 +9,9 @@ export function main() {
         .split("\n")
         .map((v) => v.split(""));
     console.log(
-        `day03: ${stage0(input)} is the power consumption and ${stage1(
+        `'${stage0(input)}' is the power consumption and '${stage1(
             input,
-        )} the life support rating of the submarine `,
+        )}' the life support rating of the submarine.`,
     );
 }
 

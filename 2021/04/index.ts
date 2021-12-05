@@ -7,13 +7,13 @@ const inputPath = resolve(__dirname, "./input.txt");
 export function main() {
     const input = parse(readFileSync(inputPath, "utf8"));
     console.log(
-        `Bingo! Our final score is ${stage0(
+        `Bingo! Our final score is '${stage0(
             input.nums,
             input.boards,
-        )} and if the squid should win we get a score of ${stage1(
+        )}' and if the squid should win we get a score of '${stage1(
             input.nums,
             input.boards,
-        )}.`,
+        )}'.`,
     );
 }
 
