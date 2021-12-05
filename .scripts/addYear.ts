@@ -6,23 +6,6 @@ const TSCONFIG = `{
     "extends": "../tsconfig.json"
 }
 `;
-const RUN = `// Run all days
-
-console.time("Execution took");
-
-for (let i = 1; i <= 25; i++) {
-    const day = i.toString(10).padStart(2, "0");
-    try {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const mod = require(\`./\${day}\`) as { main(): void };
-        mod.main();
-    } catch (error) {
-        throw new Error(\`Error runnin Day\${day}: \${error}\`);
-    }
-}
-
-console.timeLog("Execution took");
-`;
 
 const INDEXTS = `// day§day§: 
 // import { readFileSync } from "fs";
@@ -72,7 +55,7 @@ if (!(year === process.argv[2] && parseInt(process.argv[2], 10) >= 2015)) {
     );
 }
 
-const folder = path.resolve(year);
+const folder = path.resolve("../", year);
 
 if (fs.existsSync(folder)) {
     throw new Error(`${folder} already exists.`);
@@ -86,7 +69,6 @@ if (!fs.existsSync(config)) {
 
 fs.mkdirSync(folder);
 fs.writeFileSync(folder + path.sep + "tsconfig.json", TSCONFIG, "utf8");
-fs.writeFileSync(folder + path.sep + "run.ts", RUN, "utf8");
 
 for (let i = 1; i <= 25; i++) {
     const day = i.toString(10).padStart(2, "0");
@@ -109,10 +91,8 @@ for (let i = 1; i <= 25; i++) {
 
 const json = JSON.parse(fs.readFileSync(config, "utf8"));
 
-json["scripts"][`build:${year}`] = `tsc -b ${year}/`;
-json["scripts"][`pretest:${year}`] = `npm run build:${year}`;
-json["scripts"][`test:${year}`] = `mocha ${year}/**/index.test.js`;
-json["scripts"][`prerun:${year}`] = `npm run build:${year}`;
-json["scripts"][`run:${year}`] = `node  ${year}/run.js`;
+json["scripts"][`build:${year}`] = `npm run build ${year}`;
+json["scripts"][`test:${year}`] = `npm run test ${year}`;
+json["scripts"][`start:${year}`] = `npm run start ${year}`;
 
 fs.writeFileSync(config, JSON.stringify(json), "utf8");

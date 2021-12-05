@@ -4,16 +4,23 @@
     "version": "2021",
     "description": "My Advent of Code solutions",
     "scripts": {
-        "preaddYear": "tsc addYear.ts",
-        "addYear": "node addYear.js",
+        "preaddYear": "tsc -b .scripts",
+        "addYear": "node .scripts/addYear.js",
         "postaddYear": "npm run format",
-        "build:2021": "tsc -b 2021/",
-        "pretest:2021": "npm run build:2021",
-        "test:2021": "mocha 2021/**/index.test.js",
-        "prerun:2021": "npm run build:2021",
-        "run:2021": "node  2021/run.js",
+        "prebuild": "tsc -b .scripts",
+        "build": "node .scripts/build.js",
+        "pretest": "tsc -b .scripts",
+        "test": "node .scripts/test.js",
+        "prestart": "tsc -b .scripts",
+        "start": "node .scripts/start.js",
         "format": "prettier --write --ignore-path '**/*.d.ts' .",
-        "lint": "eslint --ext ts --ignore-pattern '**/*.d.ts' ."
+        "lint": "eslint --ext ts --ignore-pattern '**/*.d.ts' .",
+        "build:2021": "npm run build 2021",
+        "test:2021": "npm run test 2021",
+        "start:2021": "npm run start 2021",
+        "build:all": "npm run build all",
+        "test:all": "npm run test all",
+        "start:all": "npm run start all"
     },
     "repository": {
         "type": "git",
@@ -40,6 +47,9 @@
     },
     "dependencies": {
         "@types/node": "^16.11.11",
+        "chalk": "^4.1.2",
+        "strip-ansi": "^6.0.1",
+        "tslog": "^3.3.0",
         "typescript": "^4.5.2"
     }
 }

@@ -9,7 +9,7 @@ export function main() {
     console.log(
         `The multiple of the final horizontal position by the final depth is '${stage0(
             input,
-        )}' and '${stage1(input)}' if the submarine uses aim.`,
+        )} m' and '${stage1(input)} m' if the submarine uses aim.`,
     );
 }
 export function stage0(arg: string[]) {

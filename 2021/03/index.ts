@@ -9,7 +9,9 @@ export function main() {
         .split("\n")
         .map((v) => v.split(""));
     console.log(
-        `'${stage0(input)}' is the power consumption and '${stage1(
+        `'Analyses of our data suggests that ${stage0(
+            input,
+        )}' is the power consumption and '${stage1(
             input,
         )}' the life support rating of the submarine.`,
     );
@@ -36,7 +38,7 @@ export function stage0(arg: string[][]) {
 }
 
 export function stage1(test: string[][]) {
-    console.log(test.map((v) => v.reverse()));
+    test.map((v) => v.reverse());
     let oxygenArr = test;
     let co2Arr = test;
     let i = 0;
@@ -55,7 +57,7 @@ export function stage1(test: string[][]) {
         i++;
     }
 
-    console.log(`${oxygenArr[0]?.join("")}+${co2Arr[0]?.join("")}`);
+    // console.log(`${oxygenArr[0]?.join("")}+${co2Arr[0]?.join("")}`);
 
     return (
         parseInt(oxygenArr[0]?.join("") ?? "", 2) *
