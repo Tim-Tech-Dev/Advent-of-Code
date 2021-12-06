@@ -2,7 +2,7 @@ import "mocha";
 import { expect } from "chai";
 import { stage0, stage1 } from "./index";
 
-describe("day02", () => {
+describe("[2021-02]", () => {
     it("stage 0: This sequence of commands should dive the submarine to 150 m", () => {
         const input = [
             "forward 5",

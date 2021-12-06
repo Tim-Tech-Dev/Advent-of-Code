@@ -2,7 +2,7 @@ import "mocha";
 import { expect } from "chai";
 import { stage0, stage1 } from "./index";
 
-describe("day03", () => {
+describe("[2021-03]", () => {
     const input = [
         "00100",
         "11110",

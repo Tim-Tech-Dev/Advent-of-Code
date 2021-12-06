@@ -1,4 +1,4 @@
-// day02:
+// --- Day 2: Dive! ---
 import { readFileSync } from "fs";
 import { resolve } from "path";
 

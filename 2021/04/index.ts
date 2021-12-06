@@ -1,4 +1,4 @@
-// day04:
+// --- Day 4: Giant Squid ---
 import { readFileSync } from "fs";
 import { resolve } from "path";
 

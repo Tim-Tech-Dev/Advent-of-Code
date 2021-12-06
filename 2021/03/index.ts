@@ -1,4 +1,4 @@
-// day03:
+// --- Day 3: Binary Diagnostic ---
 import { readFileSync } from "fs";
 import { resolve } from "path";
 
@@ -9,7 +9,7 @@ export function main() {
         .split("\n")
         .map((v) => v.split(""));
     console.log(
-        `'Analyses of our data suggests that ${stage0(
+        `Analyses of our data suggests that '${stage0(
             input,
         )}' is the power consumption and '${stage1(
             input,

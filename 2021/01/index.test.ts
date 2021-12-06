@@ -2,7 +2,7 @@ import "mocha";
 import { expect } from "chai";
 import { stage0, stage1 } from "./index";
 
-describe("day01", () => {
+describe("[2021-01]", () => {
     it("stage 0: The amount of larger measurement should be 7", () => {
         const input = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
         const res = stage0(input);

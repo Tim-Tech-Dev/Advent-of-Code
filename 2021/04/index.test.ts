@@ -2,7 +2,7 @@ import "mocha";
 import { expect } from "chai";
 import { stage0, stage1, parse } from "./index";
 
-describe("day04", () => {
+describe("[2021-04]", () => {
     const input =
         parse(`7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 

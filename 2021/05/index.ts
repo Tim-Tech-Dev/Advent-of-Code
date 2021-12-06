@@ -1,4 +1,4 @@
-// day05:
+// --- Day 5: Hydrothermal Venture ---
 import { readFileSync } from "fs";
 import { resolve } from "path";
 

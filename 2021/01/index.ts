@@ -1,4 +1,4 @@
-// day01:
+// --- Day 1: Sonar Sweep ---
 import { readFileSync } from "fs";
 import { resolve } from "path";
 
