@@ -6,9 +6,9 @@ My Advent of Code solutions
 
 [![Advent of Code](https://img.shields.io/badge/Advent%20of%20Code%20🎄-2021-brightgreen)](https://adventofcode.com/2021/about)
 [![Language](https://img.shields.io/badge/Language-Typescript-blue)](https://www.typescriptlang.org/)
-[![Days completed](https://img.shields.io/badge/day%20📅-6-9cf)](https://adventofcode.com/2021)
-[![Stars](https://img.shields.io/badge/stars%20⭐-11-yellow)](https://adventofcode.com/2021/stats)
-![Days Completed](https://img.shields.io/badge/days%20completed-5-red)
+[![Days completed](https://img.shields.io/badge/day%20📅-7-9cf)](https://adventofcode.com/2021)
+[![Stars](https://img.shields.io/badge/stars%20⭐-14-yellow)](https://adventofcode.com/2021/stats)
+![Days Completed](https://img.shields.io/badge/days%20completed-7-red)
 ![GitHub](https://img.shields.io/github/license/Tim-Tech-Dev/Advent-of-Code?label=License)
 
 ---
