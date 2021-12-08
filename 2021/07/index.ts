@@ -11,7 +11,7 @@ export function main() {
     const res0 = stage0(input);
     const res1 = stage1(input);
     console.log(
-        `We have to move the crab submarines to ${res0?.pos} to accive the lowest fuel cost of '${res0?.fuelcost}' and '${res1?.fuelcost}' if the crabs do not burn fuel at a constant rate.`,
+        `We have to move the crab submarines to ${res0?.pos} to achieve the lowest fuel cost of '${res0?.fuelcost}' and '${res1?.fuelcost}' if the crabs do not burn fuel at a constant rate.`,
     );
 }
 
