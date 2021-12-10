@@ -89,10 +89,10 @@ function log(output: Map<number, string[]>) {
 
 let deployedWorkes = 0;
 
-function update() {
+async function update() {
     console.clear();
+    log(output);
     if (deployedWorkes === 0) {
-        log(output);
         console.timeLog("Execution took");
     } else {
         console.log(`${deployedWorkes} threads deployed!`);
