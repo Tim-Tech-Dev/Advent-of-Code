@@ -46,6 +46,7 @@ export function explode(tokens: Token[]) {
 
     let index = -1;
 
+    // find the leftmost [number,number] of depth 4 or more
     for (let i = 0; i < tokens.length; i++) {
         const token = tokens[i];
         if (token === "[") depth++;
@@ -61,7 +62,9 @@ export function explode(tokens: Token[]) {
         }
     }
 
+    // if we fond one explode it
     if (index > 0) {
+        // add the left value to the next number to the left
         for (let i = index - 2; i >= 0; i--) {
             if (typeof tokens[i] === "number") {
                 newtokens[i] =
@@ -70,6 +73,7 @@ export function explode(tokens: Token[]) {
                 break;
             }
         }
+        // add the right value to the next number to the right
         for (let i = index + 2; i < tokens.length; i++) {
             if (typeof tokens[i] === "number") {
                 newtokens[i] =
@@ -78,6 +82,7 @@ export function explode(tokens: Token[]) {
                 break;
             }
         }
+        // newtokens.splice(index - 2, 5, 0);
         newtokens[index] = 0;
         newtokens = tokens.filter(
             (_v, i) =>
@@ -95,9 +100,12 @@ export function split(tokens: Token[]) {
         console.log("split(): ", tokens.join(""));
     }
     const newtokens = tokens;
+
+    // find the leftmost number grater than 9
     for (let i = 0; i < tokens.length; i++) {
         const token = tokens[i];
         if (typeof token === "number" && token > 9) {
+            // replace it with a pair
             newtokens.splice(
                 i,
                 1,
@@ -120,7 +128,7 @@ export function reduce(tokens: Token[]): Token[] {
     if (DEBUG < 2) {
         console.log("reduce(): ", tokens.join(""));
     }
-
+    // try to explode the number before splitting it
     const res1 = explode(tokens);
     if (tokens.join("") !== res1.join("")) {
         return reduce(res1);
@@ -131,6 +139,7 @@ export function reduce(tokens: Token[]): Token[] {
         return reduce(res2);
     }
 
+    // because this function is recursive this will only called in the last call after all reduction steps happend
     if (DEBUG < 2) {
         console.log("reduce->: ", tokens.join(""));
     }
@@ -142,7 +151,7 @@ export function add(a: Token[], b: Token[]) {
         console.log("add(a): ", a.join(""));
         console.log("add(b): ", b.join(""));
     }
-
+    // adding is simple because we only have to add some tokens
     const res = reduce(["[", ...a, ",", ...b, "]"]);
     if (DEBUG < 3) {
         console.log("add->: ", res.join(""), "\n");
@@ -155,43 +164,32 @@ export function sum(a: Token[][]) {
     return a.reduce((c, d) => add(c, d));
 }
 
-export function magnitude(tokens: Token[]): Token[] | number {
-    const newtokens = tokens.map((v) => v);
-    for (let i = 0; i < tokens.length; i++) {
-        const token = tokens[i];
-        if (token === ",") {
-            if (
-                typeof tokens[i - 1] === "number" &&
-                typeof tokens[i + 1] === "number"
-            ) {
-                newtokens.splice(
-                    i - 2,
-                    5,
-                    ((tokens[i - 1] as number | undefined) ?? 0) * 3 +
-                        ((tokens[i + 1] as number | undefined) ?? 0) * 2,
-                );
-                break;
-            }
-        }
-    }
+type SnailfishNumber = [SnailfishNumber | number, SnailfishNumber | number];
 
-    if (newtokens.join("") === tokens.join("")) {
-        const res = newtokens[0];
-        if (typeof res === "number") {
-            return res;
+export function magnitude(tokens: Token[]): number {
+    const json = JSON.parse(tokens.join("")) as SnailfishNumber;
+
+    const recurse = (v: SnailfishNumber) => {
+        let res = 0;
+        if (typeof v[0] === "number") {
+            res += v[0] * 3;
         } else {
-            return newtokens;
+            res += recurse(v[0]) * 3;
         }
-    } else {
-        return magnitude(newtokens);
-    }
+        if (typeof v[1] === "number") {
+            res += v[1] * 2;
+        } else {
+            res += recurse(v[1]) * 2;
+        }
+        return res;
+    };
+    return recurse(json);
 }
 
 export function stage0(arg: string[]) {
     const list = arg.map((v) => parse(v.trim()));
     const res = sum(list);
-    let mag: Token[] | number | Error = magnitude(res);
-    mag = typeof mag === "number" ? mag : new Error(mag.toString());
+    const mag = magnitude(res);
     return mag;
 }
 
